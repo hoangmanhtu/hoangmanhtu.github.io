@@ -1,0 +1,39 @@
+RewriteEngine On
+#reule cho trang chi tiết sản phẩm
+RewriteRule chi-tiet-san-pham/(.*)/([0-9]{1,}) index.php?&controller=product&action=detail&slug=$1&id=$2
+#rule cho trang Danh sách sản phẩm phân trang
+RewriteRule danh-sach-san-pham index.php?&controller=product&action=showAll
+#Rule cho trang category Danh sách sản phẩm theo danh mục
+RewriteRule san-pham/(.*)/([0-9]{1,})/([0-9]{1,}) index.php?&controller=product&action=productcategory&slug=$1&id=$2&page=$3
+#rule cho trang đăng nhap tài khoản
+RewriteRule dang-nhap index.php?&controller=login
+#rule cho trang đăng ký tài khoản
+RewriteRule dang-ky index.php?&controller=login&action=register
+#rule cho trang thông tin cá nhân
+RewriteRule thong-tin-ca-nhan index.php?&controller=login&action=getUserAccount
+#rule cho trang logout
+RewriteRule logout index.php?&controller=login&action=logout
+#Rule cho trang giỏ hàng
+#rule cho trang thêm vào giỏ hàng
+RewriteRule them-vao-gio-hang/([0-9]{1,}) index.php?controller=cart&action=add&id=$1
+#rule cho trang giỏ hàng của bạn
+RewriteRule gio-hang-cua-ban index.php?controller=cart&action=index
+#rule xóa sản phẩm trong giỏ hàng
+RewriteRule xoa-san-pham/([0-9]{1,}) index.php?controller=cart&action=delete&id=$1
+#rule xóa toàn bộ giỏ hànng
+RewriteRule xoa-toan-bo-san-pham index.php?controller=Cart&action=destroy
+#url thanh toán
+RewriteRule thanh-toan index.php?controller=payment&action=index
+#url cảm ơn
+RewriteRule cam-on index.php?controller=payment&action=thank
+#url thanh toán trực tuyến
+RewriteRule thanh-toan-truc-tuyen index.php?controller=payment&action=online
+#rewirte cho trang danh giá
+RewriteRule danh-gia/([0-9]{1,}) index.php?controller=rating&action=index&id=$1
+#rewirte lịch sử mua hàng
+RewriteRule lich-su-mua-hang index.php?controller=Login&action=history
+#rewirte danh sách sản phẩm của đơn hàng
+RewriteRule san-pham-don-hang/([0-9]{1,}) index.php?controller=Login&action=historyallproduct&id=$1
+
+#rewirte hủy đơn hàng
+RewriteRule huy-don-hang/([0-9]{1,}) index.php?controller=Login&action=delete_orders&id=$1
